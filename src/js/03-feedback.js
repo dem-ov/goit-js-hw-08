@@ -4,8 +4,6 @@ const LOCAL_STORAGE_KEY = 'feedback-form-state';
 
 let data = {};
 
-loadForm();
-
 formEl.addEventListener('input', _throttle(onSaveFormInput, 500));
 
 formEl.addEventListener('submit', onFormSubmit);
