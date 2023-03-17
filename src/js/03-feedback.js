@@ -1,7 +1,18 @@
 import _throttle from 'lodash.throttle';
 const formEl = document.querySelector('.feedback-form');
 const LOCAL_STORAGE_KEY = 'feedback-form-state';
-loadForm();
+
+function loadForm() {
+  const savedData = localStorage.getItem(LOCAL_STORAGE_KEY);
+  if (savedData) {
+    const parsedData = JSON.parse(savedData);
+    Object.entries(parsedData).forEach(([key, value]) => {
+      const inputEl = formEl.querySelector(`[name=${key}]`);
+      if (inputEl) inputEl.value = value;
+    });
+  }
+}
+
 let data = {};
 
 formEl.addEventListener('input', _throttle(onSaveFormInput, 500));
