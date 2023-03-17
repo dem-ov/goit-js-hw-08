@@ -12,7 +12,7 @@ function loadForm() {
     });
   }
 }
-
+// ---//
 let data = {};
 
 formEl.addEventListener('input', _throttle(onSaveFormInput, 500));
@@ -33,7 +33,6 @@ function onFormSubmit(event) {
     alert('Enter all data');
     return;
   }
-
   event.target.reset();
   console.log(data);
   localStorage.removeItem(LOCAL_STORAGE_KEY);
